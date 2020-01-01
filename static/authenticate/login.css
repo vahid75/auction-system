@@ -1,0 +1,114 @@
+/* @-ms-viewport{
+  width: device-width;
+} */
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+body{ 
+/* background: rgba(145,232,66,1);
+background: -moz-linear-gradient(left, rgba(145,232,66,1) 0%, rgba(186,227,61,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(145,232,66,1)), color-stop(100%, rgba(186,227,61,1)));
+background: -webkit-linear-gradient(left, rgba(145,232,66,1) 0%, rgba(186,227,61,1) 100%);
+background: -o-linear-gradient(left, rgba(145,232,66,1) 0%, rgba(186,227,61,1) 100%);
+background: -ms-linear-gradient(left, rgba(145,232,66,1) 0%, rgba(186,227,61,1) 100%);
+background: linear-gradient(to right, rgba(145,232,66,1) 0%, rgba(186,227,61,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91e842', endColorstr='#bae33d', GradientType=1 ); */
+
+background: rgba(67,127,230,1);
+background: -moz-linear-gradient(left, rgba(67,127,230,1) 0%, rgba(117,127,235,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(67,127,230,1)), color-stop(100%, rgba(117,127,235,1)));
+background: -webkit-linear-gradient(left, rgba(67,127,230,1) 0%, rgba(117,127,235,1) 100%);
+background: -o-linear-gradient(left, rgba(67,127,230,1) 0%, rgba(117,127,235,1) 100%);
+background: -ms-linear-gradient(left, rgba(67,127,230,1) 0%, rgba(117,127,235,1) 100%);
+background: linear-gradient(to right, rgba(67,127,230,1) 0%, rgba(117,127,235,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#437fe6', endColorstr='#757feb', GradientType=1 ); 
+
+
+
+
+}
+
+.cont{
+  position: relative;
+  width: 25%;
+  /* height: 400px; */
+  padding: 10px 25px;
+  margin: 10vh auto;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form{ width: 100%; height: 100%; }
+
+h1, h2, .user, .pass{ 
+  text-align: center;
+  display: block;
+}
+
+h1{ 
+  color: #606060;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 30px auto;
+}
+
+.user, .pass, .login{
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 30px;
+}
+
+.user, .pass{ background: #ecf0f1; }  
+
+.login{
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  background: #ff9a34;
+  transition: background 0.4s ease;
+}
+
+.login:hover{ background: #3570dc; }
+
+@media only screen and (min-width : 280px) {
+  .cont{ width: 90% }
+}
+
+@media only screen and (min-width : 480px) {
+  .cont{ width: 60% }
+}
+
+@media only screen and (min-width : 768px) {
+  .cont{ width: 40% }
+}
+
+@media only screen and (min-width : 992px) {
+  .cont{
+     width: 30%;
+     height: 70vh;
+    }
+    #login .user {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+    #login .pass{
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+}
+
+h2{ color: #fff; margin-top: 25px; }

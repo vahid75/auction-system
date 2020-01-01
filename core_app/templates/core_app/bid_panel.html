@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <style>
+        body{
+            margin: 20px 100px 50px 100px
+            
+            }
+        </style>
+    </head>
+    <body>
+        <p><b>bid panel</b></p>
+        <p>total bids : {{total_bids}}</p>
+            
+        <div>
+            here you will see the  your items ::
+            {%for item in items%}
+            owner: [[{{owner}}]] and his item: [[{{item}}]]<br>
+            his main price:{{original_price}}
+            {%endfor%}
+        </div>
+        <hr>
+        <div>
+            and offers:<br>
+            {%for offer in offers%}
+                the person that offerd : {{offer.offer_person}}
+                and his price:{{offer.offer_price}}
+                <br>
+            {%endfor%}
+        <div>
+
+<hr><hr>
+        <div>
+            here you will see the  your bids ::<br>
+            {%for bid in bids%}
+            <ul>
+                <li> item title: {{bid.item.title}}</li>
+                <li>owner: {{bid.item.owner}}</li>
+                <li>original price: {{bid.item.original_price}}</li>
+                <li>best price: {{bid.item.best_price}}</li>
+            </ul>
+              
+               
+                
+                
+
+            {%endfor%}
+                
+
+
+        </div>
+        
+    </body>
+</html>

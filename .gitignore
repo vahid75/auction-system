@@ -1,0 +1,5 @@
+**/__pycache__/
+dumpdata.json
+pgdg.list
+Dockerfile
+**/migrations

@@ -1,0 +1,62 @@
+{% extends "base_auth.html" %}
+{%load static%}
+
+  <title>{%block title%} HOME 🐒 {%endblock title%}</title>
+  <!-- <link rel="stylesheet" href="{%static 'chat/login.css' %}"> -->
+
+
+  
+  
+{%block body%}  
+<body id="login">
+
+
+<!-- partial:index.partial.html -->
+
+{%block login%}
+<!-- padding-bottom:70px -->
+<div class="cont" style=" ;">
+  
+  <div class="form">
+      
+        <form class="login-form" action="" method="POST">
+            {% csrf_token %}
+            <h1>Login</h1>
+      <!-- <input type="text"
+             class="user"
+             placeholder="Username"/> -->
+             
+                  <strong>{{userinfoo.username.errors}}</strong>
+                  {{userinfoo.username}}
+                 
+             
+
+      
+      <!-- <input type="password" 
+             class="pass"
+             placeholder="Password"/> -->
+             {{userinfoo.password.errors}}
+            
+             {{userinfoo.password}}
+
+           
+             
+            
+
+      <button type=submit class="login">Login</button>
+    </form>
+    
+    <a href="{% url 'authenticate:reg' %}">Dont have a account?</a>
+  </div>
+  
+  
+  
+</div>
+{%endblock%}
+</body>
+{%endblock body%}
+</html>
+
+
+  
+  
