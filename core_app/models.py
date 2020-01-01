@@ -55,14 +55,14 @@ class Item(models.Model):
 
 
     def save(self,*args,**kwargs):
-        user = Person.objects.get(name = self.owner)             
-        if Item.objects.filter(status = self.ACTIVE).count() ==0:
-           user.user_item_number = 0 
-           user.save()  
+        # user = Person.objects.get(name = self.owner)             
+        # if Item.objects.filter(status = self.ACTIVE).count() ==0:
+        #    user.user_item_number = 0 
+        #    user.save()  
         if self.owner.item_set.filter(status = self.ACTIVE).count() >= 2:
             self.status = self.INACTIVE        
-        user.user_item_number +=1
-        user.save() 
+        # user.user_item_number +=1
+        # user.save() 
         # if self.best_offer_price == None:
         #     self.best_offer_price = self.original_price             
         super().save(*args,**kwargs)
@@ -70,12 +70,12 @@ class Item(models.Model):
     
             
 
-class Person(models.Model):
-    """this is a profile model for storing additioal data for our user such as [user_item_number] that indicate this user'item created to limiting him for creating additional items larger than 2.the implementation is set in Item model save method. """
+# class Person(models.Model):
+#     """this is a profile model for storing additioal data for our user such as [user_item_number] that indicate this user'item created to limiting him for creating additional items larger than 2.the implementation is set in Item model save method. """
 
-    user = models.OneToOneField(User,on_delete = models.CASCADE)
-    name = models.CharField(max_length = 255,null = True,blank = True)
-    user_item_number = models.IntegerField(default = 0) 
+#     user = models.OneToOneField(User,on_delete = models.CASCADE)
+#     name = models.CharField(max_length = 255,null = True,blank = True)
+#     user_item_number = models.IntegerField(default = 0) 
 
 
 class Bid(models.Model):
