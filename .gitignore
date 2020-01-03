@@ -3,3 +3,4 @@ dumpdata.json
 pgdg.list
 Dockerfile
 **/migrations
+core_app/auction workspace.code-workspace
