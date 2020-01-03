@@ -42,12 +42,12 @@ class Item(models.Model):
 
     def expire_by_date(self):
         if self.expire_date ==None:
-            if self.creation_date.day + self.duration.days <= timezone.now().day:
+            if self.creation_date + self.duration <= timezone.now():
                 print(self.title ,'is being sold')
                 self.status = self.SOLD
                 self.save()
         else:
-            if self.expire_date.day <= timezone.now().day:
+            if self.expire_date <= timezone.now():
                 print(self.title ,'is being sold')
                 self.status = self.SOLD
                 self.save() 
@@ -63,8 +63,8 @@ class Item(models.Model):
             self.status = self.INACTIVE        
         # user.user_item_number +=1
         # user.save() 
-        # if self.best_offer_price == None:
-        #     self.best_offer_price = self.original_price             
+        if self.best_offer_price == None:
+            self.best_offer_price = self.original_price             
         super().save(*args,**kwargs)
         
     
@@ -84,9 +84,9 @@ class Bid(models.Model):
     offer_person = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete = models.CASCADE)
     offer_price = models.FloatField(null = True) 
 
-
-    # best_offer_price =  models.FloatField(null = True,blank=True) 
+     
     def deactive(self):
+        # update: this method does not gonna be implemented. because this future deleted from project checklists
         if Item.status == self.INACTIVE:
             self.item = None
 

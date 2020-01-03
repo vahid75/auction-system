@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import bid_history,home,ItemDetails
 
+# app_name = 'core_app'
+
 
 urlpatterns = [
     path('history/', bid_history,name = "history"),

@@ -40,7 +40,7 @@ def authenticating(request):
         password = request.POST.get('password')
         authed_user = authenticate(request , username = username , password = password)
 
-        if authed_user is not None: 
+        if authed_user is not None:
             login(request,authed_user)
             print("you are login as {}". format(username))            
             return HttpResponseRedirect(reverse("home"))

@@ -39,7 +39,7 @@ def bid_history(request):
 
 
 def home(request):
-    user = request.user
+    # user = request.user
     items = Item.objects.all()
     context ={
         'items':items

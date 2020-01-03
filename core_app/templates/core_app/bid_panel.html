@@ -14,21 +14,34 @@
         <div>
             here you will see the  your items ::
             {%for item in items%}
-            owner: [[{{owner}}]] and his item: [[{{item}}]]<br>
-            his main price:{{original_price}}
-            {%endfor%}
+            <ul> <h3>---{{item}}</h3>
+                <li>
+                    main price:{{original_price}}
+                </li>
+                
+                    <ul><b>offers:</b> 
+                        {%for offer in offers%}
+                        <li>
+                            the person that offerd : {{offer.offer_person}}
+                        </li>
+                        
+                        <li>
+                            and his price:{{offer.offer_price}}
+                        </li>
+                <br>
+                        {%endfor%}
+                    </ul>
+                
+            </ul>
+            <hr>    {%endfor%}
         </div>
         <hr>
         <div>
-            and offers:<br>
-            {%for offer in offers%}
-                the person that offerd : {{offer.offer_person}}
-                and his price:{{offer.offer_price}}
-                <br>
-            {%endfor%}
+             <br>
+            
         <div>
 
-<hr><hr>
+
         <div>
             here you will see the  your bids ::<br>
             {%for bid in bids%}

@@ -10,6 +10,7 @@ def main():
     now = timezone.now()
     active_items = Item.objects.filter(status = "ACT") 
     for item in active_items:
+        print(item.title)
         item.expire_by_date()
 
     all_users = User.objects.all()
