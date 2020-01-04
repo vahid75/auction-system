@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 import datetime
 from django.urls import reverse
+from django import forms
 
 
 # Create your models here.
@@ -36,7 +37,6 @@ class Item(models.Model):
     def get_absolute_url(self):
         return reverse('details',args=[(self.pk)]) 
 
-
     def __str__(self):
         return self.title
 
@@ -50,8 +50,7 @@ class Item(models.Model):
             if self.expire_date <= timezone.now():
                 print(self.title ,'is being sold')
                 self.status = self.SOLD
-                self.save() 
-        
+                self.save()        
 
 
     def save(self,*args,**kwargs):
@@ -69,6 +68,9 @@ class Item(models.Model):
         
     
             
+
+
+
 
 # class Person(models.Model):
 #     """this is a profile model for storing additioal data for our user such as [user_item_number] that indicate this user'item created to limiting him for creating additional items larger than 2.the implementation is set in Item model save method. """
