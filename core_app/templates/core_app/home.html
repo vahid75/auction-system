@@ -5,8 +5,11 @@
                 here you will see the items
             </h2>
             {%for item in items%}
-            <a href="{{item.get_absolute_url}}">{{item.title}}</a>-------------> <a href="{%url 'history' %}">history</a><br>
+            <a href="{{item.get_absolute_url}}">{{item.title}}</a>
             {%endfor%}
+        </div>
+        <div>
+            <br><hr> <a href="{%url 'history' %}">history</a>
         </div>
     </body>
 </html>

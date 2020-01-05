@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 import core_app 
 from authenticate.views import authenticating
+import api
 
 
 urlpatterns = [
@@ -24,5 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include("authenticate.urls")),
     path('core/', include('core_app.urls')),
-    
+    path('api/',include('api.urls')),
 ]
+    
+
+
+

@@ -13,7 +13,7 @@ def bid_history(request):
         for item in items:
             owner = item.owner
             original_price = item.original_price
-            offers = item.bid_set.all() 
+            offers = item.bid_set.all()  
             total_bids =item.bid_set.all().count()
     else:
         owner = None
