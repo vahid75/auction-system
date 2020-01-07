@@ -46,6 +46,9 @@ def item_detail(request,pk,format = None):
 
 @api_view(['GET','POST'])
 def bidlist(request,format=None):
+    """ 
+    With this view you can see your bids and can create a new bid with post method.
+    """    
     if request.method == 'GET':
         bids = Bid.objects.filter(offer_person = request.user)
         serializer = BidSerializer(bids,many = True)                
@@ -61,6 +64,9 @@ def bidlist(request,format=None):
 
 @api_view(['GET'])
 def item_bids(request,pk,format=None):
+    """
+    if the person that request a GET method is not the item owner,only some litle detail of the item bids is shown to him such total bids for that item ,the item owner name ,winner of that bid and  best offer price. 
+    """
     item = Item.objects.get(pk = pk)
     if item.owner == request.user:
         if request.method == 'GET':

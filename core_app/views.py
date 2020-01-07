@@ -8,38 +8,18 @@ from django.urls import reverse_lazy
 def bid_history(request):
     user = request.user
     bids = user.bid_set.all()    
-    items = Item.objects.filter(owner = user)
-    if items:
-        for item in items:
-            owner = item.owner
-            original_price = item.original_price
-            offers = item.bid_set.all()  
-            total_bids =item.bid_set.all().count()
-    else:
-        owner = None
-        original_price = None
-        offers = None
-        total_bids = None
-        
+    items = Item.objects.filter(owner = user) 
 
-    
     context = {
         'user':user,
         'bids':bids,
-        'items':items,
-        'owner':owner,
-        'original_price':original_price,
-        'offers':offers,
-        'total_bids':total_bids,
-        
-    }
-
+        'items':items,                
+            }
     return render(request,'core_app/bid_panel.html',context)
 
 
 
 def home(request):
-    # user = request.user
     items = Item.objects.all()
     context ={
         'items':items

@@ -8,27 +8,29 @@
         </style>
     </head>
     <body>
-        <p><b>bid panel</b></p>
-        <p>total bids : {{total_bids}}</p>
+        <h1>bid panel</h1>
+        
             
         <div>
-            here you will see the  your items ::
+            <h2>here you will see the  your items :</h2>
             {%for item in items%}
-            <ul> <h3>---{{item}}</h3>
+            <ul> <h3>--- {{item}} ---</h3>
                 <li>
-                    main price:{{original_price}}
+                    total bids for this item : {{item.bid_set.all.count}}
+                </li>               
+                <li>
+                    main price :  {{item.original_price}}
                 </li>
-                
-                    <ul><b>offers:</b> 
-                        {%for offer in offers%}
-                        <li>
-                            the person that offerd : {{offer.offer_person}}
-                        </li>
                         
-                        <li>
-                            and his price:{{offer.offer_price}}
-                        </li>
-                <br>
+                    <ul><b>offers:</b> 
+                        {%for bid in item.bid_set.all%}
+                            <li>
+                                 person that offerd : {{bid.offer_person}}
+                            </li>                        
+                            <li>
+                                and his price:{{bid.offer_price}}
+                            </li>
+                            <br>
                         {%endfor%}
                     </ul>
                 
@@ -39,11 +41,11 @@
         <div>
              <br>
             
-        <div>
+       
 
 
         <div>
-            here you will see the  your bids ::<br>
+            <h2>here you will see the  your bids :</h2><br>
             {%for bid in bids%}
             <ul>
                 <li> item title: {{bid.item.title}}</li>

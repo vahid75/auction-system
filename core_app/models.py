@@ -93,7 +93,7 @@ class Bid(models.Model):
             self.item = None
 
     def __str__(self):
-        return self.offer_person.username + "'s_bid"
+        return self.offer_person.username + f"'s bid for {self.item.title} item"
 
 
     def save(self,*args,**kwargs):    

@@ -8,7 +8,7 @@ urlpatterns = [
     path('itemlist/',itemlist),
     path('item_detail/<int:pk>/',item_detail),
     path('bidlist/',bidlist),
-    path('item_bids/<int:pk>/',item_bids),
+    path('item_bids/<int:pk>/',item_bids),  
     # path('itemlist/',itemlist),
 
 ]
