@@ -31,8 +31,7 @@ def item_detail(request,pk,format = None):
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        serializer = ItemSerializer(item,data = request.data)
-        serializer.owner = request.user
+        serializer = ItemSerializer(item,data = request.data)        
         if serializer.is_valid():
             serializer.save(owner = request.user)            
             return Response(serializer.data,status = status.HTTP_201_CREATED)
@@ -65,19 +64,19 @@ def bidlist(request,format=None):
 @api_view(['GET'])
 def item_bids(request,pk,format=None):
     """
-    if the person that request a GET method is not the item owner,only some litle detail of the item bids is shown to him such total bids for that item ,the item owner name ,winner of that bid and  best offer price. 
+    Bids that related to a item.
+    if the person that request a GET method is not the item owner,only some litle detail of the item bids should shown to him such total bids for that item ,the item owner name ,winner of that bid and  best offer price. 
     """
     item = Item.objects.get(pk = pk)
-    if item.owner == request.user:
-        if request.method == 'GET':
-            item_bids = item.bid_set.all()
-            serializer = BidSerializer(item_bids,many = True)          
-            return Response(serializer.data)
+    if request.method == 'GET':
+        if item.owner == request.user:            
+                item_bids = item.bid_set.all()
+                serializer = BidSerializer(item_bids,many = True)          
+                return Response(serializer.data)
 
-    else:
-        if request.method == 'GET':
+        else:
             item_bids = item.bid_set.count()
             content = {'total bids for this item': item_bids,'item title':item.title,
-                        'bid winner':item.winner,'best offer price':item.best_offer_price}            
+                        'bid winner':item.winner,'best offer price':item.best_offer_price}        
             return Response(content)
 
